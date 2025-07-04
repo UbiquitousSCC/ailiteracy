@@ -13,4 +13,4 @@ COPY .env ./
 ENV PORT=5000
 
 # 使用 Railway 提供的 PORT
-CMD gunicorn --workers 1 --bind 0.0.0.0:$PORT "backend:create_app()"
+CMD gunicorn --workers 1 --bind 0.0.0.0:${PORT:-5000}  "backend:create_app()"
