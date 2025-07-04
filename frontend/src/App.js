@@ -35,11 +35,6 @@ import LandingPage from './pages/landing/LandingPage';
 
 
 function App() {
-  console.log('=== Environment Debug ===');
-  console.log('NODE_ENV:', process.env.NODE_ENV);
-  console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
-  console.log('All env vars:', process.env);
-  console.log('========================');
   const { currentUser, loading } = useAuth();
 
   // Protected route component
@@ -47,15 +42,15 @@ function App() {
     if (loading) {
       return <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>Loading...</Box>;
     }
-
+    
     if (!currentUser) {
       return <Navigate to="/login" />;
     }
-
+    
     if (requiredRole && currentUser.role !== requiredRole) {
       return <Navigate to={currentUser.role === 'teacher' ? '/teacher/dashboard' : '/student/dashboard'} />;
     }
-
+    
     return children;
   };
 
@@ -146,20 +141,20 @@ function App() {
               display: 'none',
             },
             '&.Mui-expanded': { // 展開時的樣式
-              margin: '16px 0', // 避免與其他 Accordion 疊加
+               margin: '16px 0', // 避免與其他 Accordion 疊加
             }
           },
         },
       },
       MuiAppBar: { // 頂部導覽列
-        styleOverrides: {
-          root: {
-            boxShadow: 'none', // Neo Brutalism 通常頂部導覽列沒有陰影或有硬邊框
-            borderBottom: '2px solid #000000',
-            backgroundColor: '#FFFFFF', // 可以設為白色或主色
-            color: '#000000', // 文字顏色
+          styleOverrides: {
+              root: {
+                  boxShadow: 'none', // Neo Brutalism 通常頂部導覽列沒有陰影或有硬邊框
+                  borderBottom: '2px solid #000000',
+                  backgroundColor: '#FFFFFF', // 可以設為白色或主色
+                  color: '#000000', // 文字顏色
+              }
           }
-        }
       },
       MuiChip: {
         styleOverrides: {
@@ -173,8 +168,8 @@ function App() {
             color: '#FFFFFF',
           },
           colorSecondary: {
-            backgroundColor: '#9370DB',
-            color: '#FFFFFF',
+              backgroundColor: '#9370DB',
+              color: '#FFFFFF',
           }
         },
       },
@@ -191,13 +186,13 @@ function App() {
 
         {/* Public routes */}
         <Route path="/login" element={
-          currentUser ?
-            <Navigate to={currentUser.role === 'teacher' ? '/teacher/dashboard' : '/student/dashboard'} /> :
+          currentUser ? 
+            <Navigate to={currentUser.role === 'teacher' ? '/teacher/dashboard' : '/student/dashboard'} /> : 
             <Login />
         } />
         <Route path="/register" element={
-          currentUser ?
-            <Navigate to={currentUser.role === 'teacher' ? '/teacher/dashboard' : '/student/dashboard'} /> :
+          currentUser ? 
+            <Navigate to={currentUser.role === 'teacher' ? '/teacher/dashboard' : '/student/dashboard'} /> : 
             <Register />
         } />
 
@@ -237,15 +232,15 @@ function App() {
 
         {/* Default redirect */}
         <Route path="/" element={
-          currentUser ?
-            <Navigate to={currentUser.role === 'teacher' ? '/teacher/dashboard' : '/student/dashboard'} /> :
+          currentUser ? 
+            <Navigate to={currentUser.role === 'teacher' ? '/teacher/dashboard' : '/student/dashboard'} /> : 
             <Navigate to="/landing" />
         } />
-
+        
         {/* Catch all - redirect to appropriate dashboard or login */}
         <Route path="*" element={
-          currentUser ?
-            <Navigate to={currentUser.role === 'teacher' ? '/teacher/dashboard' : '/student/dashboard'} /> :
+          currentUser ? 
+            <Navigate to={currentUser.role === 'teacher' ? '/teacher/dashboard' : '/student/dashboard'} /> : 
             <Navigate to="/landing" />
         } />
       </Routes>
