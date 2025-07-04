@@ -16,7 +16,7 @@ bp = Blueprint('code_runner', __name__, url_prefix='/api/code')
 
 # Docker配置
 DOCKER_IMAGE = 'python:3.9-alpine'
-EXECUTION_TIMEOUT = 10  # 秒
+EXECUTION_TIMEOUT = 2  # 秒
 MEMORY_LIMIT = '128m'
 CPU_LIMIT = 0.5
 

@@ -2,15 +2,22 @@
 FROM node:22.16.0 AS builder
 # Set working directory
 WORKDIR /app
-# Copy all files from current directory to working dir in image
+# Copy package files first for better caching
+COPY package*.json ./
+# Install dependencies
+RUN npm install
+# Copy all files
 COPY . .
 
-# install node modules and build assets
-RUN npm install 
+# 接收建置時的環境變數 (Railway 會在建置時注入)
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+
+# Build the app
 RUN chmod a+x node_modules/.bin/react-scripts
 RUN npm run build
 
-# nginx state for serving content
+# nginx stage for serving content
 FROM nginx:alpine
 # Set working directory to nginx asset directory
 WORKDIR /usr/share/nginx/html
