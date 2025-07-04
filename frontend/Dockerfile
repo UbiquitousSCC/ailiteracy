@@ -9,7 +9,7 @@ RUN npm install
 # Copy all files
 COPY . .
 
-# 接收建置時的環境變數 (Railway 會在建置時注入)
+# 接收建置時的環境變數
 ARG REACT_APP_API_URL
 ENV REACT_APP_API_URL=$REACT_APP_API_URL
 

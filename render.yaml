@@ -1,0 +1,36 @@
+databases:
+  - name: final-form-db
+    databaseName: devdb
+    user: devuser
+    plan: free
+
+services:
+  # Backend 服務
+  - type: web
+    name: final-form-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: final-form-db
+          property: connectionString
+      - key: FLASK_ENV
+        value: production
+    dockerCommand: sh -c "gunicorn --workers 2 --bind 0.0.0.0:${PORT:-5000} 'backend:create_app()'"
+
+  # Frontend 服務
+  - type: web
+    name: final-form-frontend
+    runtime: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
+    plan: free
+    envVars:
+      - key: REACT_APP_API_URL
+        fromService:
+          name: final-form-backend
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
