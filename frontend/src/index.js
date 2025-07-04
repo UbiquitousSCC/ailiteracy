@@ -8,6 +8,11 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import setupAxios from './utils/axiosConfig';
 
+console.log('=== Environment Debug ===');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
+console.log('All env vars:', process.env);
+console.log('========================');
 // 設置全局axios配置
 setupAxios();
 
