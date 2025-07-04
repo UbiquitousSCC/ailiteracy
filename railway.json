@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "$schema": "https://railway.app/railway.schema.json",
   "build": {
     "builder": "DOCKERFILE"
@@ -9,3 +10,23 @@
     "restartPolicyMaxRetries": 10
   }
 }
+=======
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "builder": "DOCKERFILE",
+    "dockerfilePath": "Dockerfile"
+  },
+  "deploy": {
+    "runtime": "V2",
+    "numReplicas": 1,
+    "sleepApplication": false,
+    "multiRegionConfig": {
+      "asia-southeast1-eqsg3a": {
+        "numReplicas": 1
+      }
+    },
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
+  }
+}
+>>>>>>> 2251208e45e515aab3695dd5af828484d4cee11b
