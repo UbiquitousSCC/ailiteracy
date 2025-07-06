@@ -46,9 +46,9 @@ const Sidebar = ({ open, toggleDrawer }) => {
   const studentMenuItems = [
     { text: '儀表板', icon: <Dashboard />, path: '/student/dashboard' },
     { text: '我的課程', icon: <MenuBook />, path: '/student/courses' },
-    { text: '我的進度', icon: <Analytics />, path: '/student/progress' },
-    { text: '成就', icon: <EmojiEvents />, path: '/student/achievements' },
-    { text: '反饋', icon: <QuestionAnswer />, path: '/student/feedback' },
+    // { text: '我的進度', icon: <Analytics />, path: '/student/progress' },
+    // { text: '成就', icon: <EmojiEvents />, path: '/student/achievements' },
+    // { text: '反饋', icon: <QuestionAnswer />, path: '/student/feedback' },
   ];
   
   const menuItems = isTeacher ? teacherMenuItems : studentMenuItems;
