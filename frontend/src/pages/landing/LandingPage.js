@@ -722,18 +722,18 @@ function LandingPage() {
                     z10801032@gmail.com
                   </Typography>
                 </Box>
-                // <Box className="contact-item">
-                //   <PhoneIcon className="contact-icon" />
-                //   <Typography variant="body2" className="contact-text">
-                //     +886 6-2757575 #65607
-                //   </Typography>
-                // </Box>
-                // <Box className="contact-item">
-                //   <LocationIcon className="contact-icon" />
-                //   <Typography variant="body2" className="contact-text">
-                //     台南市東區大學路1號 成功大學 #65607
-                //   </Typography>
-                // </Box>
+                <Box className="contact-item">
+                  <LocationIcon className="contact-icon" />
+                  <Typography variant="body2" className="contact-text">
+                    百大多向思考補習班
+                  </Typography>
+                </Box>
+                <Box className="contact-item">
+                  <LocationIcon className="contact-icon" />
+                  <Typography variant="body2" className="contact-text">
+                    臺師補習班
+                  </Typography>
+                </Box>
               </Box>
             </Grid>
           </Grid>
