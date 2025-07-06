@@ -719,21 +719,21 @@ function LandingPage() {
                 <Box className="contact-item">
                   <EmailIcon className="contact-icon" />
                   <Typography variant="body2" className="contact-text">
-                    ai-gardener@ncku.edu.tw
+                    z10801032@gmail.com
                   </Typography>
                 </Box>
-                <Box className="contact-item">
-                  <PhoneIcon className="contact-icon" />
-                  <Typography variant="body2" className="contact-text">
-                    +886 6-2757575
-                  </Typography>
-                </Box>
-                <Box className="contact-item">
-                  <LocationIcon className="contact-icon" />
-                  <Typography variant="body2" className="contact-text">
-                    台南市東區大學路1號 成功大學
-                  </Typography>
-                </Box>
+                // <Box className="contact-item">
+                //   <PhoneIcon className="contact-icon" />
+                //   <Typography variant="body2" className="contact-text">
+                //     +886 6-2757575 #65607
+                //   </Typography>
+                // </Box>
+                // <Box className="contact-item">
+                //   <LocationIcon className="contact-icon" />
+                //   <Typography variant="body2" className="contact-text">
+                //     台南市東區大學路1號 成功大學 #65607
+                //   </Typography>
+                // </Box>
               </Box>
             </Grid>
           </Grid>
